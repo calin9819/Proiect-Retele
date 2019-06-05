@@ -24,17 +24,19 @@ tcp.flags = 'S' # flag de SYN
 SYN = ip / tcp
 raspuns_syn_ack = sr1(SYN)
 tcp.seq += 1
-tcp.ack = raspuns_syn_ack.seq + 1
+tcp.ack = raspuns_syn_ack.seq
 tcp.flags = 'A'
 ACK = ip / tcp
 send(ACK)
 
 for ch in "sal":
+    tcp.ack = tcp.seq + 1
+    tcp.seq += 1
     tcp.flags = 'PA'
     rcv = sr1(ip/tcp/ch)
     rcv.show()
-    # tcp.ack = rcv.seq + 1
-    tcp.seq += 1
+    
+
 tcp.flags = 'PA'
 mesaj = Raw()
 mesaj.load = "123"

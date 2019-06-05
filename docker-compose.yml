@@ -74,7 +74,7 @@ services:
         depends_on:
             - "router"
             - "server"
-        command: bash -c "ip route add 198.13.0.0/16 via 172.111.0.1 && iptables -A OUTPUT -p tcp --tcp-flags RST RST -j DROP && python /elocal/src/tcp_handshake.py & tcpdump -SnntXX tcp && sleep infinity"
+        command: bash -c "ip route add 198.13.0.0/16 via 172.111.0.1 && iptables -A OUTPUT -p tcp --tcp-flags RST RST -j DROP && python /elocal/src/tcp_handshake.py && tcpdump -SnntXX tcp && sleep infinity"
 networks:
     dmz:
         ipam:
