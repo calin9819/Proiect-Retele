@@ -19,4 +19,4 @@ logging.info("Handshake cu %s", address)
 while True:
     data = conexiune.recv(1)
     logging.info('Content primit: "%s"', data)
-    # conexiune.send("Q")
+    conexiune.send("Q")

@@ -24,7 +24,7 @@ services:
             context: docker
             dockerfile: dockerfile
         volumes:
-            - ..:/elocal
+            - .:/elocal
         tty: true
         cap_add:
           - NET_ADMIN
